@@ -10,7 +10,7 @@ depends:
 maintainer: Kristof Bach <crys@crys.hu>
 description: Pushover CLI is a tool to send Pushover notifications from the command line
 vendor: Crys
-homepage: https://oaklab.hu/crys
+homepage: https://oaklab.hu/crys/pushover-cli
 license: GPL-3.0-or-later
 contents:
   - src: ./pushover
