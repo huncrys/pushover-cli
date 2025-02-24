@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://nfpm.goreleaser.com/static/schema.json
+name: pushover-cli
+arch: all
+platform: linux
+version: 2.0.0
+section: misc
+priority: optional
+depends:
+  - curl
+maintainer: Kristof Bach <crys@crys.hu>
+description: Pushover CLI is a tool to send Pushover notifications from the command line
+vendor: Crys
+homepage: https://oaklab.hu/crys
+license: GPL-3.0-or-later
+contents:
+  - src: ./pushover
+    dst: /usr/bin/pushover
+    file_info:
+      mode: 0755
