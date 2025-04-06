@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")"/..
+range=$(scripts/version -r)
+
+echo "## Changelog"
+changelog=$(git log --no-decorate --no-color --pretty='* %H %s' ${range:+ "$range"})
+
+if [ -z "$changelog" ]; then
+    git status --porcelain
+    exit 0
+fi
+
+echo "$changelog"

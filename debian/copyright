@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://oaklab.hu/crys/unattended-upgrades-plugin-pushover
+
+Files: *
+Copyright: © 2025 Kristof Bach <crys@crys.hu>
+License: GPL-2+
+  On Debian systems, the complete text of the GNU General Public License
+  can be found in </usr/share/common-licenses/GPL-2>.

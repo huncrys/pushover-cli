@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")"/..
+
+VERSION=$(scripts/version)
+
+if [ -z "$VERSION" ]; then
+    echo "Error: unable to determine version from git" >&2
+    exit 1
+fi
+
+rm -rf dist
+mkdir -p dist
+
+chglog init --deb-distribution nodistro --deb-urgency low -o dist/changelog.yaml > /dev/null
+
+package=$(VERSION="$VERSION" envsubst < nfpm.yaml | nfpm package -f - -p deb --target dist | grep "^created package: " | cut -d' ' -f3-)
+
+if [ -z "$package" ]; then
+    echo "Error: unable to create package" >&2
+    exit 1
+fi
+
+lintian --quiet "$package"
+
+echo "$package"

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")"/..
+
+VERSION=$(scripts/version)
+DEB=$(scripts/package)
+NAME="$(dpkg-deb -f "$DEB" Package)_$(dpkg-deb -f "$DEB" Architecture).deb"
+ASSET="dist/$NAME"
+
+echo "Deb package created: $DEB"
+echo "Asset name: $NAME"
+
+cp "$DEB" "$ASSET"
+NO_PROMPT=1 glab release create --notes "$(scripts/notes)" "$VERSION" "$ASSET#$NAME#package"
+rm -f -- "$ASSET"
