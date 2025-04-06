@@ -13,5 +13,5 @@ echo "Deb package created: $DEB"
 echo "Asset name: $NAME"
 
 cp "$DEB" "$ASSET"
-NO_PROMPT=1 glab release create --notes "$(scripts/notes)" "$VERSION" "$ASSET#$NAME#package"
+NO_PROMPT=1 glab release create --notes "$(scripts/notes)" "$VERSION" "$ASSET#$NAME#package" "pushover"
 rm -f -- "$ASSET"
