@@ -2,18 +2,29 @@
 name: pushover-cli
 arch: all
 platform: linux
-version: 2.0.0
+version: $VERSION
 section: misc
 priority: optional
 depends:
   - curl
 maintainer: Kristof Bach <crys@crys.hu>
-description: Pushover CLI is a tool to send Pushover notifications from the command line
+description: |
+  Pushover CLI is a tool to send Pushover notifications from the command line
+  It supports sending messages, images, and files to Pushover users and groups.
 vendor: Crys
 homepage: https://oaklab.hu/crys/pushover-cli
-license: GPL-3.0-or-later
+changelog: dist/changelog.yaml
 contents:
   - src: ./pushover
     dst: /usr/bin/pushover
     file_info:
       mode: 0755
+  - src: debian/copyright
+    dst: /usr/share/doc/pushover-cli/copyright
+    file_info:
+      mode: 0644
+  - src: debian/.lintian-overrides
+    dst: /usr/share/lintian/overrides/pushover-cli
+    packager: deb
+    file_info:
+      mode: 0644

@@ -1,1 +1,2 @@
-unattended-upgrades-plugin-pushover: wrong-name-for-changelog-of-native-package
+pushover-cli: wrong-name-for-changelog-of-native-package
+pushover-cli: no-manual-page
