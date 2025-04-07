@@ -14,6 +14,7 @@ description: |
 vendor: Crys
 homepage: https://oaklab.hu/crys/pushover-cli
 changelog: dist/changelog.yaml
+umask: 0o022
 contents:
   - src: ./pushover
     dst: /usr/bin/pushover
